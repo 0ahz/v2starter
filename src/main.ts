@@ -1,5 +1,10 @@
 import 'normalize.css'
 
+import 'virtual:windi.css'
+import 'virtual:windi-devtools'
+
+import './styles/main.css'
+
 import { createApp } from 'vue'
 import '@purge-icons/generated'
 

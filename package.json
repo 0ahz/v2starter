@@ -28,6 +28,7 @@
     "vite-plugin-components": "^0.8.3",
     "vite-plugin-html": "^2.0.6",
     "vite-plugin-purge-icons": "^0.7.0",
+    "vite-plugin-windicss": "^0.14.0",
     "vue-tsc": "^0.0.15"
   }
 }

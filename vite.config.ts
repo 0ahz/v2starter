@@ -4,6 +4,7 @@ import dayjs from 'dayjs'
 import { defineConfig, loadEnv } from 'vite'
 import ViteVue from '@vitejs/plugin-vue'
 import ViteHtml from 'vite-plugin-html'
+import ViteWindiCSS from 'vite-plugin-windicss'
 import ViteComponents from 'vite-plugin-components'
 import VitePurgeIcons from 'vite-plugin-purge-icons'
 
@@ -37,6 +38,7 @@ export default ({ mode }) => {
     },
     plugins: [
       ViteVue(),
+      ViteWindiCSS(),
       VitePurgeIcons(),
       ViteComponents(),
       ViteHtml({

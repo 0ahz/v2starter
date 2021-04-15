@@ -14,7 +14,7 @@ export default defineComponent({
   name: 'App',
   components: {},
   created() {
-    this.$bus.on('test', (event: any) => {
+    this.$ebus.on('test', (event: any) => {
       console.log(`$bus.on test: `, event)
     })
   },

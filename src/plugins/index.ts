@@ -1,8 +1,8 @@
 import { App } from 'vue'
 
-import Bus from './bus'
+import EventBus from './EventBus'
 
-const plugins = [new Bus()]
+const plugins = [new EventBus()]
 
 export default {
   install(app: App) {

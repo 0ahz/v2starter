@@ -3,12 +3,12 @@ import { IPlugin } from '../plugin'
 
 declare module '@vue/runtime-core' {
   interface ComponentCustomProperties {
-    $bus: MittEmitter
+    $ebus: MittEmitter
   }
 }
 
 export default class Emitter implements IPlugin {
-  name: string = '$bus'
+  name: string = '$ebus'
 
   create(option?: any): MittEmitter {
     return mitt()

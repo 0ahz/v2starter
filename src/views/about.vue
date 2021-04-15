@@ -1,6 +1,6 @@
 <template>
   <div class="page-about">
-    <h1>About</h1>
+    <h1 @click="$bus.emit('test', { test: 'xxx' })">About</h1>
   </div>
 </template>
 

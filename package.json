@@ -1,5 +1,5 @@
 {
-  "name": "vv-starter",
+  "name": "vite-vue-starter",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",

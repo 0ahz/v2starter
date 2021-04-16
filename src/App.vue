@@ -1,7 +1,11 @@
 <template>
   <nav class="navi">
-    <router-link to="/">Home</router-link>
-    <router-link to="/about">About</router-link>
+    <select v-model="locale">
+      <option value="en">en</option>
+      <option value="zh-CN">zh-CN</option>
+    </select>
+    <router-link to="/">{{ t('home') }}</router-link>
+    <router-link to="/about">{{ t('about') }}</router-link>
     <router-link to="/xxx">XXX</router-link>
   </nav>
   <router-view />
@@ -9,15 +13,21 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   name: 'App',
   components: {},
-  created() {
-    this.$ebus.on('test', (event: any) => {
-      console.log(`$bus.on test: `, event)
-    })
+  setup() {
+    const { locale, t } = useI18n()
+
+    return { locale, t }
   },
+  // created() {
+  //   this.$ebus.on('test', (event: any) => {
+  //     console.log(`$bus.on test: `, event)
+  //   })
+  // },
 })
 </script>
 

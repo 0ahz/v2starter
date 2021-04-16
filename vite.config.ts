@@ -7,8 +7,9 @@ import ViteHtml from 'vite-plugin-html'
 import ViteWindiCSS from 'vite-plugin-windicss'
 import ViteComponents from 'vite-plugin-components'
 import VitePurgeIcons from 'vite-plugin-purge-icons'
+import ViteI18n from '@intlify/vite-plugin-vue-i18n'
 
-const pathSrc = path.resolve(__dirname, './src')
+const rootDir = path.resolve(__dirname, './')
 
 export default ({ mode }) => {
   const isProdMode = mode === 'production'
@@ -33,7 +34,7 @@ export default ({ mode }) => {
     },
     resolve: {
       alias: {
-        '@/': `${pathSrc}/`,
+        '@/': `${rootDir}/src/`,
       },
     },
     plugins: [
@@ -41,6 +42,9 @@ export default ({ mode }) => {
       ViteWindiCSS(),
       VitePurgeIcons(),
       ViteComponents(),
+      ViteI18n({
+        include: `${rootDir}/locales/**`,
+      }),
       ViteHtml({
         inject: {
           injectData: { ...env },
@@ -50,8 +54,12 @@ export default ({ mode }) => {
     ],
     css: {
       preprocessorOptions: {
-        scss: { additionalData: `@import "${pathSrc}/styles/variables.scss";` },
-        less: { additionalData: `@import "${pathSrc}/styles/variables.less";` },
+        scss: {
+          additionalData: `@import "${rootDir}/src/styles/variables.scss";`,
+        },
+        less: {
+          additionalData: `@import "${rootDir}/src/styles/variables.less";`,
+        },
       },
     },
   })

@@ -1,18 +1,10 @@
 <template>
-  <div class="page-home">
-    <h1>Home</h1>
+  <div class="p-4">
+    <h1 class="text-xl">Home</h1>
+    <div class="p-2 my-2 rounded bg-gray-100 font-mono text-cool-gray-700">
+      <pre>{{ test }}</pre>
+    </div>
   </div>
-  <div>{{ test }}</div>
-  <span
-    class="iconify"
-    data-icon="uim:vuejs"
-    data-inline="false"
-    style="display: inline-block; width: 40px; height: 40px;color: #40b983"
-  ></span>
-  <img
-    src="@/assets/logo-vite.svg"
-    style="display: inline-block; width: 40px"
-  />
 </template>
 
 <script lang="ts">
@@ -24,11 +16,10 @@ export default defineComponent({
   name: 'App',
   setup() {
     let test = {
-      random: random(0, 100),
+      random: random(0, 1000000),
       uniqueId: uniqueId('uniqueId_'),
-      fmtDate: dayjs('2019-01-25').format('DD/MM/YYYY'),
+      fmtDate: dayjs().format('YYYY-DD-MM'),
     }
-    console.log(test)
     return {
       test,
     }

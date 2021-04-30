@@ -17,7 +17,7 @@
       <router-link to="/about">{{ t('about') }}</router-link>
     </div>
     <div class="p-2 m-2">
-      <router-link to="/xxx">XXX</router-link>
+      <router-link to="/xxx">404</router-link>
     </div>
     <div class="flex-1"></div>
     <div class="p-2 m-2">

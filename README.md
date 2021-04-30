@@ -4,19 +4,57 @@
 
 Demo (TODO link)
 
-## Installation
+## Features
 
-```sh
-npm install vite-vue-starter
+> TODO
+
+## Pre-packed
+
+> TODO
+
+## Try it now
+
+### GitHub Template
+
+[Create a repo from this template on GitHub](https://github.com/0ahz/vite-vue-starter/generate).
+
+### Clone to local
+
+If you prefer to do it manually with the cleaner git history
+
+```bash
+git clone https://github.com/0ahz/vite-vue-starter.git my-app
+cd my-app
+pnpm i
+# or npm
+# or yarn
 ```
+
+## Checklist
+
+When you use this template, try follow the checklist to update your info properly
+
+- [ ] Rename `name` field in `package.json`
+- [ ] Change the author name in `LICENSE`
+- [ ] Change the favicon in `public`
+- [ ] Clean up the READMEs and remove routes
+- [ ] Change the config in `.env`
+
+And, enjoy :)
 
 ## Usage
 
-> TODO
+### Development
 
-## API
+```sh
+pnpm run dev
+```
 
-> TODO
+### Build
+
+```sh
+pnpm run build
+```
 
 ## License
 

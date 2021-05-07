@@ -28,25 +28,29 @@
     </div>
   </nav>
   <router-view />
+  <div class="p-2 my-2 bg-gray-100 font-mono text-cool-gray-700">
+    <pre>{{ state }}</pre>
+  </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, getCurrentInstance, reactive } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   name: 'App',
   components: {},
   setup() {
+    const state = reactive({
+      ebus: '',
+    })
     const { locale, t } = useI18n()
-
-    return { locale, t }
+    const $ebus = getCurrentInstance()?.appContext.config.globalProperties.$ebus
+    $ebus.on('app.ebus', (val: string) => {
+      state.ebus = val
+    })
+    return { state, locale, t }
   },
-  // created() {
-  //   this.$ebus.on('test', (event: any) => {
-  //     console.log(`$bus.on test: `, event)
-  //   })
-  // },
 })
 </script>
 

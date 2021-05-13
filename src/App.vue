@@ -31,11 +31,16 @@
   <div class="p-2 my-2 bg-gray-100 font-mono text-cool-gray-700">
     <pre>{{ state }}</pre>
   </div>
+  <div class="p-2 my-2 bg-gray-100 font-mono text-cool-gray-700">
+    <pre>{{ x }}, {{ y }}</pre>
+  </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, getCurrentInstance, reactive } from 'vue'
+import { defineComponent, getCurrentInstance, reactive, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useHead } from '@vueuse/head'
+import { useMouse } from '@vueuse/core'
 
 export default defineComponent({
   name: 'App',
@@ -49,7 +54,16 @@ export default defineComponent({
     $ebus.on('app.ebus', (val: string) => {
       state.ebus = val
     })
-    return { state, locale, t }
+    const { x, y } = useMouse()
+    useHead({
+      title: computed(
+        () => `${x.value},${y.value} - ${import.meta.env.VITE_APP_TITLE}`
+      ),
+      meta: [
+        { name: 'description', content: import.meta.env.VITE_APP_DESCRIPTION },
+      ],
+    })
+    return { state, locale, t, x, y }
   },
 })
 </script>

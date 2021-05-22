@@ -19,7 +19,6 @@ export default ({ mode }) => {
     built: dayjs().format('YYYY-MM-DDTHH:mm:ssZ[Z]'),
     ...loadEnv(mode, process.cwd()),
   }
-  console.log(env)
   return defineConfig({
     server: {
       host: '0.0.0.0',
@@ -62,5 +61,9 @@ export default ({ mode }) => {
         },
       },
     },
+    // ssgOptions: {
+    //   script: 'async',
+    //   formatting: 'minify',
+    // },
   })
 }

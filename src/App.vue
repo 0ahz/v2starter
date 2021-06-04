@@ -34,6 +34,9 @@
   <div class="p-2 my-2 bg-gray-100 font-mono text-cool-gray-700">
     <pre>{{ x }}, {{ y }}</pre>
   </div>
+  <div class="p-2 my-2">
+    <button class="btn">Button</button>
+  </div>
 </template>
 
 <script lang="ts">

@@ -15,7 +15,7 @@ Object.entries(import.meta.globEager('../../locales/*.y(a)?ml')).map(
 export function install(app: App): void {
   let i18n = createI18n({
     legacy: false,
-    locale: 'en',
+    locale: 'zh-cn',
     messages,
   })
   app.use(i18n)

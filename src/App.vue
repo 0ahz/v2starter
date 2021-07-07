@@ -23,7 +23,7 @@
     <div class="p-2 m-2">
       <select v-model="locale">
         <option value="en">English</option>
-        <option value="zh-CN">中文</option>
+        <option value="zh-cn">中文</option>
       </select>
     </div>
   </nav>

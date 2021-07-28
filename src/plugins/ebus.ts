@@ -12,5 +12,5 @@ declare module '@vue/runtime-core' {
 }
 
 export function install(app: App): void {
-  app.config.globalProperties['$ebus'] = mitt()
+  app.config.globalProperties.$ebus = mitt()
 }

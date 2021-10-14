@@ -1,6 +1,6 @@
 {
   "files.associations": {
-    "*.css": "postcss"
+    "*.css": "css"
   },
   "i18n-ally.localesPaths": [
     "locales"

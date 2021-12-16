@@ -1,6 +1,5 @@
 import path from 'path'
 
-import dayjs from 'dayjs'
 import { defineConfig, loadEnv } from 'vite'
 import ViteVue from '@vitejs/plugin-vue'
 import ViteHtml from 'vite-plugin-html'
@@ -12,12 +11,13 @@ import ViteI18n from '@intlify/vite-plugin-vue-i18n'
 const rootDir = path.resolve(__dirname, './')
 
 export default ({ mode }) => {
-  const isProdMode = mode === 'production'
+  const isProd = mode === 'production'
+  const processEnv = loadEnv(mode, process.cwd())
   const env = {
     mode,
-    isProdMode,
-    built: dayjs().format('YYYY-MM-DDTHH:mm:ssZ[Z]'),
-    ...loadEnv(mode, process.cwd()),
+    isProd,
+    built: new Date().toJSON(),
+    ...processEnv,
   }
   return defineConfig({
     server: {
@@ -48,7 +48,7 @@ export default ({ mode }) => {
         inject: {
           injectData: { ...env },
         },
-        minify: isProdMode,
+        minify: isProd,
       }),
     ],
     css: {

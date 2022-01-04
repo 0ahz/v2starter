@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4" @click="$ebus.emit('app.ebus', 'from home')">
+  <div class="p-4">
     <h1 class="text-xl">Home</h1>
     <div class="p-4" @click="countStore.count++">{{ countStore.count }}</div>
     <div class="p-2 my-2 rounded bg-gray-100 font-mono text-cool-gray-700">

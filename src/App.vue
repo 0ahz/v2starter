@@ -29,9 +29,6 @@
   </nav>
   <router-view />
   <div class="p-2 my-2 bg-gray-100 font-mono text-cool-gray-700">
-    <pre>{{ state }}</pre>
-  </div>
-  <div class="p-2 my-2 bg-gray-100 font-mono text-cool-gray-700">
     <pre>{{ x }}, {{ y }}</pre>
   </div>
   <div class="p-2 my-2">
@@ -40,7 +37,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, getCurrentInstance, reactive, computed } from 'vue'
+import { defineComponent, reactive, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useHead } from '@vueuse/head'
 import { useMouse } from '@vueuse/core'
@@ -49,25 +46,14 @@ export default defineComponent({
   name: 'App',
   components: {},
   setup() {
-    const state = reactive({
-      ebus: '',
-    })
     const { locale, t } = useI18n()
-    const $ebus = getCurrentInstance()?.appContext.config.globalProperties.$ebus
-    $ebus.on('app.ebus', (val: string) => {
-      state.ebus = val
-    })
     const { x, y } = useMouse()
     useHead({
       title: computed(
-        () => `${x.value},${y.value} - ${import.meta.env.VITE_APP_TITLE}`
+        () => `${x.value},${y.value} - ${import.meta.env.VITE_TITLE}`,
       ),
-      meta: [
-        { name: 'description', content: import.meta.env.VITE_APP_DESCRIPTION },
-      ],
     })
-    return { state, locale, t, x, y }
+    return { locale, t, x, y }
   },
 })
 </script>
-

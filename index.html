@@ -2,15 +2,23 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="<%= VITE_APP_DESCRIPTION %>" />
-    <meta name="built" content="<%= built %>" />
-    <!-- <link rel="icon" href="/favicon.svg" type="image/svg+xml" /> -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0"
+    />
+    <meta name="BUILD_VERSION" content="<%= BUILD_VERSION %>" />
+    <meta name="BUILD_AT" content="<%= BUILD_AT %>" />
+    <% if(VITE_FAVICON_EMOJI) { %>
     <link
       rel="icon"
-      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤯</text></svg>"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22><%= VITE_FAVICON_EMOJI %></text></svg>"
     />
-    <title><%= VITE_APP_TITLE %></title>
+    <% } else { %>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <% } %>
+    <title><%= VITE_TITLE %></title>
   </head>
   <body>
     <div id="app"></div>

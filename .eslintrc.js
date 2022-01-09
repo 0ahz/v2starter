@@ -20,9 +20,8 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'prettier/@typescript-eslint',
     'plugin:prettier/recommended',
-    //
   ],
   rules: {
-    // override/add rules settings here, such as:
+    // override/add rules settings here
   },
 }

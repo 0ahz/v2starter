@@ -15,7 +15,7 @@ const rootDir = path.resolve(__dirname, './')
 export default ({ mode }) => {
   const isProd = mode === 'production'
   const processEnv = loadEnv(mode, process.cwd())
-  const env = {
+  const injectData = {
     mode,
     isProd,
     BUILD_AT: dayjs(new Date()).format('YYYY-MM-DD HH:mm:ss'),
@@ -25,7 +25,6 @@ export default ({ mode }) => {
   }
   return defineConfig({
     base: processEnv.VITE_BASE,
-
     resolve: {
       alias: {
         '@/': `${rootDir}/src/`,
@@ -40,17 +39,12 @@ export default ({ mode }) => {
         include: `${rootDir}/locales/**`,
       }),
       ViteHtml({
-        inject: {
-          injectData: { ...env },
-        },
+        inject: { injectData },
         minify: isProd,
       }),
     ],
     css: {
       preprocessorOptions: {
-        scss: {
-          additionalData: `@import "${rootDir}/src/styles/variables.scss";`,
-        },
         less: {
           additionalData: `@import "${rootDir}/src/styles/variables.less";`,
         },

@@ -9,11 +9,12 @@ Object.entries(import.meta.globEager('../../locales/*.y(a)?ml')).map(
     if (matchs && matchs.length) {
       messages[matchs[1]] = value.default
     }
-  }
+  },
 )
 
 export function install(app: App): void {
   let i18n = createI18n({
+    globalInjection: true,
     legacy: false,
     locale: 'zh-cn',
     messages,

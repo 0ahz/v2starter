@@ -7,7 +7,7 @@ export default defineConfig({
     outline: false,
   },
   extract: {
-    include: ['src/**/*.{vue,html,jsx,tsx}'， 'index.html'],
+    include: ['src/**/*.{vue,html,jsx,tsx}', 'index.html'],
     exclude: ['node_modules', 'dist', 'locals', 'public', '.git'],
   },
   theme: {},

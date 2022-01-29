@@ -1,7 +1,7 @@
 import 'virtual:windi.css'
 import 'virtual:windi-devtools'
 
-import '@/styles/main.css'
+import '@/styles/main.less'
 
 // import { createApp } from 'vue'
 // import { createPinia } from 'pinia'

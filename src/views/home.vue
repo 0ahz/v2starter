@@ -1,32 +1,55 @@
 <template>
-  <div class="p-6">
-    <h1 class="text-xl">{{ $t('home') }}</h1>
-    <div class="p-4" @click="countStore.count++">{{ countStore.count }}</div>
-    <div class="p-2 my-2 rounded bg-gray-100 font-mono text-cool-gray-700">
-      <pre>{{ test }}</pre>
+  <div class="h-full flex flex-col">
+    <div class="flex-1 overflow-hidden">
+      <router-view />
+    </div>
+    <div class="flex-shrink-0">
+      <van-tabbar
+        v-model="active"
+        :fixed="false"
+        :safe-area-inset-bottom="true"
+      >
+        <template v-for="tab in tabs" :key="tab.name">
+          <van-tabbar-item
+            :name="tab.name"
+            :icon="tab.icon"
+            :to="tab.to"
+            :replace="true"
+          >
+            {{ tab.text }}
+          </van-tabbar-item>
+        </template>
+      </van-tabbar>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import { random, uniqueId } from 'lodash-es'
-import dayjs from 'dayjs'
-import { useCountStore } from '@/stores/index'
+import { defineComponent, onMounted, ref } from 'vue'
+import { loading, toast } from '@/utils'
 
 export default defineComponent({
   name: 'App',
   setup() {
-    const countStore = useCountStore()
+    const active = ref('home')
+    onMounted(() => {
+      loading.show('哈哈哈')
 
-    const test = {
-      random: random(0, 1000000),
-      uniqueId: uniqueId('uniqueId_'),
-      fmtDate: dayjs().format('YYYY-MM-DD'),
-    }
+      setTimeout(() => {
+        loading.show('😆😆😆')
+      }, 3000)
+
+      setTimeout(() => {
+        loading.hide()
+        toast.show('哈哈哈😆😆😆😆')
+      }, 6000)
+    })
     return {
-      test,
-      countStore,
+      active,
+      tabs: [
+        { name: 'home', icon: 'wap-home-o', to: '/', text: '首页' },
+        { name: 'mine', icon: 'contact', to: '/mine', text: '我的' },
+      ],
     }
   },
 })

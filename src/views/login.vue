@@ -1,7 +1,7 @@
 <template>
-  <div class="p-6">
+  <Page title="登录">
     <h1 class="text-xl">{{ $t('about') }}</h1>
-  </div>
+  </Page>
 </template>
 
 <script lang="ts">

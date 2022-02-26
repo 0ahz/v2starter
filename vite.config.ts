@@ -7,6 +7,7 @@ import ViteComponents from 'unplugin-vue-components/vite'
 import VitePurgeIcons from 'vite-plugin-purge-icons'
 import ViteI18n from '@intlify/vite-plugin-vue-i18n'
 
+import { ArcoResolver } from 'unplugin-vue-components/resolvers'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import { createStyleImportPlugin } from 'vite-plugin-style-import'
 
@@ -25,6 +26,7 @@ export default ({ mode }) => {
     VITE_TITLE: pkg.name,
     ...processEnv,
   }
+  console.log(processEnv)
   return defineConfig({
     base: processEnv.VITE_BASE,
     resolve: {
@@ -36,7 +38,15 @@ export default ({ mode }) => {
       ViteVue(),
       ViteWindiCSS(),
       VitePurgeIcons(),
-      ViteComponents(),
+      ViteComponents({
+        resolvers: [
+          ArcoResolver({
+            importStyle: 'less',
+            resolveIcons: true,
+          }),
+          //
+        ],
+      }),
       ViteI18n({
         include: `${rootDir}/locales/**`,
       }),
@@ -45,7 +55,9 @@ export default ({ mode }) => {
       }),
       createHtmlPlugin({
         minify: isProd,
-        inject: { data: injectData },
+        inject: {
+          data: injectData,
+        },
       }),
     ],
     css: {

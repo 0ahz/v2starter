@@ -1,11 +1,12 @@
 <template>
-  <div class="p-6">
-    <h1 class="text-xl">{{ $t('home') }}</h1>
-    <div class="p-4" @click="countStore.count++">{{ countStore.count }}</div>
-    <div class="p-2 my-2 rounded bg-gray-100 font-mono text-cool-gray-700">
-      <pre>{{ test }}</pre>
-    </div>
-  </div>
+  <a-space>
+    <a-button type="primary">Primary</a-button>
+    <a-button type="primary">Primary</a-button>
+    <a-button>Secondary</a-button>
+    <a-button type="dashed">Dashed</a-button>
+    <a-button type="outline">Outline</a-button>
+    <a-button type="text">Text</a-button>
+  </a-space>
 </template>
 
 <script lang="ts">
@@ -15,7 +16,7 @@ import dayjs from 'dayjs'
 import { useCountStore } from '@/stores/index'
 
 export default defineComponent({
-  name: 'App',
+  name: 'Home',
   setup() {
     const countStore = useCountStore()
 

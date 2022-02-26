@@ -1,13 +1,22 @@
-export default [
+import { RouteRecordRaw } from 'vue-router'
+
+const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    name: 'home',
-    component: () => import('@/views/home.vue'),
+    name: 'index',
+    component: () => import('@/views/index.vue'),
+    children: [
+      {
+        path: '',
+        name: 'home',
+        component: () => import('@/views/home.vue'),
+      },
+    ],
   },
   {
-    path: '/about',
-    name: 'about',
-    component: () => import('@/views/about.vue'),
+    path: '/login',
+    name: 'login',
+    component: () => import('@/views/login.vue'),
   },
   {
     path: '/:pathMatch(.*)*',
@@ -15,3 +24,5 @@ export default [
     component: () => import('../views/404.vue'),
   },
 ]
+
+export default routes

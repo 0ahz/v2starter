@@ -4,7 +4,20 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    AButton: typeof import('@arco-design/web-vue')['Button']
+    ALayout: typeof import('@arco-design/web-vue')['Layout']
+    ALayoutContent: typeof import('@arco-design/web-vue')['LayoutContent']
+    ALayoutHeader: typeof import('@arco-design/web-vue')['LayoutHeader']
+    ALayoutSider: typeof import('@arco-design/web-vue')['LayoutSider']
+    AMenu: typeof import('@arco-design/web-vue')['Menu']
+    AMenuItem: typeof import('@arco-design/web-vue')['MenuItem']
+    AMenuItemGroup: typeof import('@arco-design/web-vue')['MenuItemGroup']
+    ASpace: typeof import('@arco-design/web-vue')['Space']
+    ASubMenu: typeof import('@arco-design/web-vue')['SubMenu']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    IconApps: typeof import('@arco-design/web-vue/es/icon')['IconApps']
+    IconBug: typeof import('@arco-design/web-vue/es/icon')['IconBug']
+    IconBulb: typeof import('@arco-design/web-vue/es/icon')['IconBulb']
   }
 }
 

@@ -1,6 +1,6 @@
 <template>
   <div class="p-6">
-    <h1 class="text-xl">{{ $t('about') }}</h1>
+    <h1 class="text-xl">Login</h1>
   </div>
 </template>
 
@@ -8,6 +8,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
+  name: 'Login',
   components: {},
 })
 </script>

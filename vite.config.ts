@@ -3,6 +3,7 @@ import dayjs from 'dayjs'
 import { defineConfig, loadEnv } from 'vite'
 import ViteVue from '@vitejs/plugin-vue'
 import ViteWindiCSS from 'vite-plugin-windicss'
+import ViteAutoImport from 'unplugin-auto-import/vite'
 import ViteComponents from 'unplugin-vue-components/vite'
 import VitePurgeIcons from 'vite-plugin-purge-icons'
 import ViteI18n from '@intlify/vite-plugin-vue-i18n'
@@ -26,6 +27,17 @@ export default ({ mode }) => {
     ...processEnv,
   }
   return defineConfig({
+    server: {
+      host: '0.0.0.0',
+      port: 3101,
+      proxy: {
+        '/api': {
+          target: 'http://localhost:7700',
+          changeOrigin: true,
+          rewrite: path => path.replace(/^\/api/, ''),
+        },
+      },
+    },
     base: processEnv.VITE_BASE,
     resolve: {
       alias: {
@@ -36,9 +48,12 @@ export default ({ mode }) => {
       ViteVue(),
       ViteWindiCSS(),
       VitePurgeIcons(),
+      ViteAutoImport(),
       ViteComponents(),
       ViteI18n({
-        include: `${rootDir}/locales/**`,
+        runtimeOnly: true,
+        compositionOnly: true,
+        include: [`${rootDir}/locales/**`],
       }),
       createStyleImportPlugin({
         resolves: [],
@@ -55,21 +70,9 @@ export default ({ mode }) => {
         },
       },
     },
-    server: {
-      host: '0.0.0.0',
-      port: 3101,
-      proxy: {
-        '/api': {
-          target: 'http://localhost:7700',
-          changeOrigin: true,
-          rewrite: path => path.replace(/^\/api/, ''),
-        },
-      },
+    optimizeDeps: {
+      include: ['vue', 'vue-router', '@vueuse/core', '@vueuse/head'],
+      exclude: ['vue-demi'],
     },
-    //
-    // ssgOptions: {
-    //   script: 'async',
-    //   formatting: 'minify',
-    // },
   })
 }

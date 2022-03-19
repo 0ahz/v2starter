@@ -4,3 +4,5 @@ public
 dist
 .eslintrc.js
 index.html
+auto-imports.d.ts
+components.d.ts

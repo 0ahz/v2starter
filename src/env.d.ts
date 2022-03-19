@@ -7,8 +7,6 @@ declare module '*.vue' {
   export default component
 }
 
-declare interface Window {}
-
 interface ImportMetaEnv {
   readonly VITE_BASE: string
   readonly VITE_TITLE: string

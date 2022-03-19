@@ -74,7 +74,6 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'Index',
-  setup() {},
+  name: 'PageIndex',
 })
 </script>

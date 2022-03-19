@@ -16,7 +16,7 @@ import dayjs from 'dayjs'
 import { useCountStore } from '@/stores/index'
 
 export default defineComponent({
-  name: 'Home',
+  name: 'PageHome',
   setup() {
     const countStore = useCountStore()
 

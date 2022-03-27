@@ -53,7 +53,7 @@ export default ({ mode }) => {
       ViteI18n({
         runtimeOnly: true,
         compositionOnly: true,
-        include: [`${rootDir}/locales/**`],
+        include: [`${rootDir}/src/plugins/i18n/locales/**`],
       }),
       createStyleImportPlugin({
         resolves: [],

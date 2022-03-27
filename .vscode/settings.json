@@ -3,6 +3,6 @@
     "*.css": "css"
   },
   "i18n-ally.localesPaths": [
-    "locales"
+    "src/plugins/i18n/locales"
   ]
 }

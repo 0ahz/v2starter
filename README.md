@@ -1,4 +1,4 @@
-# vite-vue-starter [![thanks](https://badgen.net/badge/thanks/♥/pink)](https://github.com/0ahz)
+# Vite & Vue Starter [![thanks](https://badgen.net/badge/thanks/♥/pink)](https://github.com/0ahz)
 
 > Some awesome description
 
@@ -16,18 +16,16 @@ Demo (TODO link)
 
 ### GitHub Template
 
-[Create a repo from this template on GitHub](https://github.com/0ahz/vite-vue-starter/generate).
+[Create a repo from this template on GitHub](https://github.com/0ahz/v2starter/generate).
 
 ### Clone to local
 
 If you prefer to do it manually with the cleaner git history
 
 ```bash
-git clone https://github.com/0ahz/vite-vue-starter.git my-app
+git clone https://github.com/0ahz/v2starter.git my-app
 cd my-app
 pnpm i
-# or npm
-# or yarn
 ```
 
 ## Checklist

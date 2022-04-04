@@ -2,9 +2,9 @@ import 'virtual:windi.css'
 import 'virtual:windi-devtools'
 
 import '@/styles/main.css'
+import '@/styles/nprogress.css'
 
 import { createApp } from 'vue'
-import '@purge-icons/generated'
 
 import { name, version } from '../package.json'
 
@@ -14,7 +14,7 @@ import router from './router'
 
 console.time('🕓 App Loaded')
 
-createApp(App).use(plugins).use(router).mount('#app')
+createApp(App).use(router).use(plugins).mount('#app')
 
 console.timeEnd('🕓 App Loaded')
 

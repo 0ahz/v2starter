@@ -5,6 +5,14 @@
 declare module 'vue' {
   export interface GlobalComponents {
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    IPhArrowLeftDuotone: typeof import('~icons/ph/arrow-left-duotone')['default']
+    IPhGithubLogoDuotone: typeof import('~icons/ph/github-logo-duotone')['default']
+    IPhHeartStraightDuotone: typeof import('~icons/ph/heart-straight-duotone')['default']
+    IPhHouseDuotone: typeof import('~icons/ph/house-duotone')['default']
+    IPhMoonStarsDuotone: typeof import('~icons/ph/moon-stars-duotone')['default']
+    IPhSunDuotone: typeof import('~icons/ph/sun-duotone')['default']
+    IPhTranslateDuotone: typeof import('~icons/ph/translate-duotone')['default']
+    IUimVuejs: typeof import('~icons/uim/vuejs')['default']
   }
 }
 

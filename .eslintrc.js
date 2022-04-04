@@ -4,11 +4,21 @@ module.exports = {
     node: true,
     browser: true,
     es6: true,
+    es2021: true,
+  },
+  globals: {
+    window: true,
+    document: true,
+    localStorage: true,
+    sessionStorage: true,
+    defineProps: true,
+    defineEmits: true,
+    defineExpose: true,
   },
   parser: 'vue-eslint-parser',
   parserOptions: {
     parser: '@typescript-eslint/parser',
-    ecmaVersion: 2020,
+    ecmaVersion: 'latest',
     sourceType: 'module',
     ecmaFeatures: {
       jsx: true,

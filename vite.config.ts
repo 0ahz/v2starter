@@ -1,11 +1,13 @@
 import path from 'path'
-import dayjs from 'dayjs'
 import { defineConfig, loadEnv } from 'vite'
 import ViteVue from '@vitejs/plugin-vue'
+import ViteVueJsx from '@vitejs/plugin-vue-jsx'
+import ViteLegacy from '@vitejs/plugin-legacy'
 import ViteWindiCSS from 'vite-plugin-windicss'
 import ViteAutoImport from 'unplugin-auto-import/vite'
 import ViteComponents from 'unplugin-vue-components/vite'
-import VitePurgeIcons from 'vite-plugin-purge-icons'
+import ViteIcons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
 import ViteI18n from '@intlify/vite-plugin-vue-i18n'
 
 import { createHtmlPlugin } from 'vite-plugin-html'
@@ -21,7 +23,7 @@ export default ({ mode }) => {
   const injectData = {
     mode,
     isProd,
-    BUILD_AT: dayjs(new Date()).format('YYYY-MM-DD HH:mm:ss'),
+    BUILD_TIME: new Date().toISOString(),
     BUILD_VERSION: pkg.version,
     VITE_TITLE: pkg.name,
     ...processEnv,
@@ -46,10 +48,19 @@ export default ({ mode }) => {
     },
     plugins: [
       ViteVue(),
+      ViteLegacy({ targets: ['defaults', 'not IE 11'] }),
+      ViteVueJsx(),
       ViteWindiCSS(),
-      VitePurgeIcons(),
-      ViteAutoImport(),
-      ViteComponents(),
+      ViteIcons(),
+      ViteAutoImport({
+        dts: `${rootDir}/auto-imports.d.ts`,
+        // imports: [],
+        // resolvers: [],
+      }),
+      ViteComponents({
+        dts: `${rootDir}/components.d.ts`,
+        resolvers: [IconsResolver()],
+      }),
       ViteI18n({
         runtimeOnly: true,
         compositionOnly: true,

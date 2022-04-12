@@ -4,17 +4,24 @@
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
-    "strict": true,
     "jsx": "preserve",
+    "lib": ["esnext", "dom"],
+    "useDefineForClassFields": true,
+    "strict": true,
     "sourceMap": true,
     "resolveJsonModule": true,
+    "isolatedModules": true,
     "esModuleInterop": true,
-    "lib": ["esnext", "dom"],
-    "types": ["vite/client", "@intlify/vite-plugin-vue-i18n/client"],
+    "types": [
+      "vite/client",
+      "@intlify/vite-plugin-vue-i18n/client"
+      //
+    ],
     "paths": {
       "@/*": ["src/*"]
     }
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "exclude": ["dist", "node_modules", "public", "tests"]
+  "exclude": ["dist", "node_modules", "public", "tests"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

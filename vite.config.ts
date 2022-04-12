@@ -1,4 +1,4 @@
-import path from 'path'
+import { resolve } from 'path'
 import { defineConfig, loadEnv } from 'vite'
 import ViteVue from '@vitejs/plugin-vue'
 import ViteVueJsx from '@vitejs/plugin-vue-jsx'
@@ -13,9 +13,9 @@ import ViteI18n from '@intlify/vite-plugin-vue-i18n'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import { createStyleImportPlugin } from 'vite-plugin-style-import'
 
-import pkg from './package.json'
+import * as pkg from './package.json'
 
-const rootDir = path.resolve(__dirname, './')
+const rootDir = resolve(__dirname, './')
 
 export default ({ mode }) => {
   const isProd = mode === 'production'

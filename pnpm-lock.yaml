@@ -40,6 +40,7 @@ specifiers:
   vue-i18n: ^9.1.9
   vue-router: ^4.0.14
   vue-tsc: ^0.33.9
+  windicss: ^3.5.1
 
 dependencies:
   '@vueuse/core': 8.2.6_vue@3.2.33
@@ -80,6 +81,7 @@ devDependencies:
   vite-plugin-style-import: 2.0.0_vite@2.9.5
   vite-plugin-windicss: 1.8.4_vite@2.9.5
   vue-tsc: 0.33.9_typescript@4.6.3
+  windicss: 3.5.1
 
 packages:
 

@@ -28,6 +28,7 @@ export default ({ mode }) => {
     VITE_TITLE: pkg.name,
     ...processEnv,
   }
+  console.log(injectData)
   return defineConfig({
     server: {
       host: '0.0.0.0',

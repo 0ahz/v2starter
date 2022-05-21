@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "packageManager": "pnpm@6.32.11",
   "scripts": {
-    "preinstall": "npx only-allow pnpm -y",
+    "// preinstall": "npx only-allow pnpm -y",
     "dev": "vite --open",
     "build": "vite build",
     "preview": "vite preview",

@@ -13,7 +13,6 @@ declare module '@vue/runtime-core' {
     IPhMoonStarsDuotone: typeof import('~icons/ph/moon-stars-duotone')['default']
     IPhSunDuotone: typeof import('~icons/ph/sun-duotone')['default']
     IPhTranslateDuotone: typeof import('~icons/ph/translate-duotone')['default']
-    IUimVuejs: typeof import('~icons/uim/vuejs')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SvgIcon: typeof import('./src/components/SvgIcon.vue')['default']

@@ -12,6 +12,7 @@ import ViteI18n from '@intlify/vite-plugin-vue-i18n'
 
 import { createHtmlPlugin } from 'vite-plugin-html'
 import { createStyleImportPlugin } from 'vite-plugin-style-import'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
 import * as pkg from './package.json'
 
@@ -73,6 +74,10 @@ export default ({ mode }) => {
       createHtmlPlugin({
         minify: isProd,
         inject: { data: injectData },
+      }),
+      createSvgIconsPlugin({
+        iconDirs: [`${rootDir}/src/assets/svgicons`],
+        symbolId: 'svgicon-[dir]-[name]',
       }),
     ],
     css: {

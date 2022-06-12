@@ -12,7 +12,8 @@
     "test": "vitest",
     "test:unit": "vitest",
     "test:e2e": "cypress open",
-    "typecheck": "vue-tsc --noEmit"
+    "typecheck": "vue-tsc --noEmit",
+    "svgo": "svgo -f src/assets/svgicons"
   },
   "dependencies": {
     "@vueuse/core": "^8.6.0",
@@ -45,6 +46,7 @@
     "less": "^4.1.3",
     "postcss": "^8.4.14",
     "prettier": "2.6.2",
+    "svgo": "^2.8.0",
     "typescript": "^4.7.3",
     "unplugin-auto-import": "^0.8.7",
     "unplugin-icons": "^0.14.3",
@@ -52,6 +54,7 @@
     "vite": "^2.9.12",
     "vite-plugin-html": "^3.2.0",
     "vite-plugin-style-import": "^2.0.0",
+    "vite-plugin-svg-icons": "^2.0.1",
     "vite-plugin-windicss": "^1.8.4",
     "vitest": "^0.14.2",
     "vue-tsc": "^0.37.3",

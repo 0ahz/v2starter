@@ -1,5 +1,6 @@
 import 'virtual:windi.css'
 import 'virtual:windi-devtools'
+import 'virtual:svg-icons-register'
 
 import '@/styles/main.css'
 import '@/styles/nprogress.css'

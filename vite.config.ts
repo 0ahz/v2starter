@@ -9,12 +9,24 @@ import ViteComponents from 'unplugin-vue-components/vite'
 import ViteIcons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import ViteI18n from '@intlify/vite-plugin-vue-i18n'
+import ViteRestart from 'vite-plugin-restart'
+import ViteCompression from 'vite-plugin-compression'
+import ViteBanner from 'vite-plugin-banner'
 
 import { createHtmlPlugin } from 'vite-plugin-html'
 import { createStyleImportPlugin } from 'vite-plugin-style-import'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
 import * as pkg from './package.json'
+
+const BANNER = `/**
+ * name: ${pkg.name}
+ * version: v${pkg.version}
+ * description: ${pkg.description}
+ * author: ${pkg.author}
+ * homepage: ${pkg.homepage}
+ * license: ${pkg.license}
+**/`
 
 const rootDir = resolve(__dirname, './')
 
@@ -68,6 +80,17 @@ export default ({ mode }) => {
         compositionOnly: true,
         include: [`${rootDir}/src/plugins/i18n/locales/**`],
       }),
+      ViteRestart({ restart: [] }),
+      ViteCompression({
+        // gzip
+        ext: '.gz',
+        deleteOriginFile: false,
+        // brotli
+        // ext: '.br',
+        // algorithm: 'brotliCompress',
+        // deleteOriginFile: false,
+      }),
+      ViteBanner(BANNER),
       createStyleImportPlugin({
         resolves: [],
       }),

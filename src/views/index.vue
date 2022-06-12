@@ -1,12 +1,12 @@
 <template>
   <div class="h-full flex flex-col justify-center items-center">
     <header class="text-center space-y-4">
-      <i-uim-vuejs class="text-8xl" style="color: #40b983" />
-      <SvgIcon name="logo" color="#40b983" style="font-size: 30px" />
-      <!-- <img
+      <!-- <i-uim-vuejs class="text-8xl" style="color: #40b983" />
+      <SvgIcon name="logo" style="color: #40b983; font-size: 30px" /> -->
+      <img
         src="https://media.giphy.com/media/XreQmk7ETCak0/giphy.gif"
         alt="Cool kid doing thumbs up"
-      /> -->
+      />
       <h1 class="text-4xl">{{ title }}</h1>
       <nav class="text-base space-x-4">
         <router-link to="/">{{ $t('home') }}</router-link>

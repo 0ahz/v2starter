@@ -12,6 +12,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
+    "skipLibCheck": true,
     "types": [
       "vite/client",
       "@intlify/vite-plugin-vue-i18n/client",

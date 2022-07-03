@@ -24,6 +24,12 @@
     }
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "exclude": ["dist", "node_modules", "public", "tests"],
+  "exclude": [
+    "dist",
+    "node_modules",
+    "public",
+    "auto-imports.d.ts",
+    "components.d.ts"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

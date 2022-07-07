@@ -8,8 +8,8 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1, viewport-fit=cover"
     />
-    <meta name="BUILD_VERSION" content="<%= BUILD_VERSION %>" />
-    <meta name="BUILD_TIME" content="<%= BUILD_TIME %>" />
+    <meta name="BUILD_VERSION" content="<%= pkgVersion %>" />
+    <meta name="BUILD_TIME" content="<%= buildTime %>" />
     <% if(VITE_FAVICON_EMOJI) { %>
     <link
       rel="icon"
@@ -32,7 +32,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#40b983" />
-    <title><%= VITE_TITLE %></title>
+    <title><%= pkgName %></title>
     <script>
       ;(function () {
         const prefersDark =

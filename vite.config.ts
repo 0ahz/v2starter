@@ -30,15 +30,17 @@ const BANNER = `/**
 
 const rootDir = resolve(__dirname, './')
 
-export default ({ mode }) => {
-  const isProd = mode === 'production'
+export default ({ command, mode }) => {
+  const isBuild = command === 'build'
+  const isProduction = mode === 'production'
   const processEnv = loadEnv(mode, process.cwd())
   const injectData = {
     mode,
-    isProd,
-    BUILD_TIME: new Date().toISOString(),
-    BUILD_VERSION: pkg.version,
-    VITE_TITLE: pkg.name,
+    isBuild,
+    isProduction,
+    pkgName: pkg.name,
+    pkgVersion: pkg.version,
+    buildTime: new Date().toISOString(),
     ...processEnv,
   }
   console.log(injectData)
@@ -84,18 +86,18 @@ export default ({ mode }) => {
       ViteCompression({
         // gzip
         ext: '.gz',
-        deleteOriginFile: false,
         // brotli
         // ext: '.br',
         // algorithm: 'brotliCompress',
-        // deleteOriginFile: false,
+        filter: /\.(js|css|html|svg|png)$/i,
+        deleteOriginFile: false,
       }),
       ViteBanner(BANNER),
       createStyleImportPlugin({
         resolves: [],
       }),
       createHtmlPlugin({
-        minify: isProd,
+        minify: isBuild,
         inject: { data: injectData },
       }),
       createSvgIconsPlugin({

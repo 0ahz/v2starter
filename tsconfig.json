@@ -5,7 +5,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "jsx": "preserve",
-    "lib": ["esnext", "dom"],
+    "lib": ["esnext", "dom", "WebWorker"],
     "useDefineForClassFields": true,
     "strict": true,
     "sourceMap": true,
@@ -24,12 +24,6 @@
     }
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "exclude": [
-    "dist",
-    "node_modules",
-    "public",
-    "auto-imports.d.ts",
-    "components.d.ts"
-  ],
+  "exclude": ["dist", "node_modules", "public"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

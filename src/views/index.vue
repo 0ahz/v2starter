@@ -1,6 +1,6 @@
 <template>
   <div class="h-full flex flex-col justify-center items-center">
-    <header class="text-center space-y-4">
+    <header class="flex flex-col justify-center items-center space-y-4">
       <!-- <i-uim-vuejs class="text-8xl" style="color: #40b983" />
       <SvgIcon name="logo" style="color: #40b983; font-size: 30px" /> -->
       <img

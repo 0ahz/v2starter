@@ -3,7 +3,15 @@
 }
 
 #nprogress .bar {
-  background: #40b983;
+  /* background: #40b983; */
+  background: repeating-linear-gradient(
+    to right,
+    #0047e1 0%,
+    #34cdfe 25%,
+    #00dc82 50%,
+    #36e4da 75%,
+    #0047e1 100%
+  );
 
   position: fixed;
   z-index: 1031;
@@ -21,8 +29,8 @@
   right: 0px;
   width: 100px;
   height: 100%;
-  box-shadow: 0 0 10px #40b983, 0 0 5px #40b983;
-  opacity: 1.0;
+  /* box-shadow: 0 0 10px #40b983, 0 0 5px #40b983; */
+  opacity: 1;
 
   -webkit-transform: rotate(3deg) translate(0px, -4px);
   -ms-transform: rotate(3deg) translate(0px, -4px);

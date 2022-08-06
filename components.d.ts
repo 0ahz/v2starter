@@ -17,6 +17,5 @@ declare module '@vue/runtime-core' {
     IPhTranslateDuotone: typeof import('~icons/ph/translate-duotone')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    SvgIcon: typeof import('./src/components/SvgIcon.vue')['default']
   }
 }

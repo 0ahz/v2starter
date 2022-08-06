@@ -28,7 +28,9 @@ const BANNER = `/**
  * license: ${pkg.license}
 **/`
 
-const rootDir = resolve(__dirname, './')
+const resolvePath = (path: string): string => {
+  return resolve(__dirname, path)
+}
 
 export default ({ command, mode }) => {
   const isBuild = command === 'build'
@@ -46,7 +48,7 @@ export default ({ command, mode }) => {
   console.log(injectData)
   return defineConfig({
     server: {
-      host: '0.0.0.0',
+      // host: '0.0.0.0',
       port: 3101,
       proxy: {
         '/api': {
@@ -59,7 +61,7 @@ export default ({ command, mode }) => {
     base: processEnv.VITE_BASE,
     resolve: {
       alias: {
-        '@/': `${rootDir}/src/`,
+        '@/': `${resolvePath('src')}/`,
       },
     },
     plugins: [
@@ -69,18 +71,18 @@ export default ({ command, mode }) => {
       ViteWindiCSS(),
       ViteIcons(),
       ViteAutoImport({
-        dts: `${rootDir}/auto-imports.d.ts`,
+        dts: resolvePath('auto-imports.d.ts'),
         // imports: [],
         // resolvers: [],
       }),
       ViteComponents({
-        dts: `${rootDir}/components.d.ts`,
+        dts: resolvePath('components.d.ts'),
         resolvers: [IconsResolver()],
       }),
       ViteI18n({
         runtimeOnly: true,
         compositionOnly: true,
-        include: [`${rootDir}/src/plugins/i18n/locales/**`],
+        include: [`${resolvePath('src/plugins/i18n/locales')}/**`],
       }),
       ViteRestart({ restart: [] }),
       ViteCompression({
@@ -101,14 +103,16 @@ export default ({ command, mode }) => {
         inject: { data: injectData },
       }),
       createSvgIconsPlugin({
-        iconDirs: [`${rootDir}/src/assets/svgicons`],
+        iconDirs: [resolvePath('src/assets/svgicons')],
         symbolId: 'svgicon-[dir]-[name]',
       }),
     ],
     css: {
       preprocessorOptions: {
         less: {
-          additionalData: `@import "${rootDir}/src/styles/variables.less";`,
+          additionalData: `@import "${resolvePath(
+            'src/styles/variables.less',
+          )}";`,
         },
       },
     },

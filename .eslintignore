@@ -1,9 +1,10 @@
 .vscode
 .DS_Store
+.eslintrc.js
+index.html
 node_modules
 public
 dist
-.eslintrc.js
-index.html
+src/vite-env.d.ts
 auto-imports.d.ts
 components.d.ts

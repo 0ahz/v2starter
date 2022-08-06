@@ -33,7 +33,7 @@
         <i-ph-github-logo-duotone />
       </a>
       <span
-        class="cursor-pointer flex items-center space-x-2"
+        class="cursor-pointer flex items-center space-x-2 count-btn"
         @click="countStore.count++"
       >
         <i-ph-heart-straight-duotone />

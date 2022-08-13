@@ -48,7 +48,6 @@ export default ({ command, mode }) => {
   console.log(injectData)
   return defineConfig({
     server: {
-      // host: '0.0.0.0',
       port: 3101,
       proxy: {
         '/api': {

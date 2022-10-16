@@ -13,6 +13,7 @@ import ViteRestart from 'vite-plugin-restart'
 import ViteCompression from 'vite-plugin-compression'
 import ViteBanner from 'vite-plugin-banner'
 
+import { VitePWA } from 'vite-plugin-pwa'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import { createStyleImportPlugin } from 'vite-plugin-style-import'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
@@ -68,7 +69,7 @@ export default ({ command, mode }) => {
       ViteLegacy({ targets: ['defaults', 'not IE 11'] }),
       ViteVueJsx(),
       ViteWindiCSS(),
-      ViteIcons(),
+      ViteIcons({}),
       ViteAutoImport({
         dts: resolvePath('auto-imports.d.ts'),
         // imports: [],
@@ -77,6 +78,33 @@ export default ({ command, mode }) => {
       ViteComponents({
         dts: resolvePath('components.d.ts'),
         resolvers: [IconsResolver()],
+      }),
+      VitePWA({
+        registerType: 'autoUpdate',
+        includeAssets: ['favicon.svg', 'safari-pinned-tab.svg'],
+        manifest: {
+          name: processEnv.VITE_TITLE,
+          short_name: processEnv.VITE_TITLE,
+          theme_color: '#ffffff',
+          // icons: [
+          //   {
+          //     src: '/pwa-192x192.png',
+          //     sizes: '192x192',
+          //     type: 'image/png',
+          //   },
+          //   {
+          //     src: '/pwa-512x512.png',
+          //     sizes: '512x512',
+          //     type: 'image/png',
+          //   },
+          //   {
+          //     src: '/pwa-512x512.png',
+          //     sizes: '512x512',
+          //     type: 'image/png',
+          //     purpose: 'any maskable',
+          //   },
+          // ],
+        },
       }),
       ViteI18n({
         runtimeOnly: true,

@@ -1,9 +1,0 @@
-{
-  "name": "Vite Vue Starter",
-  "short_name": "Vite Vue Starter",
-  "theme_color": "#40b983",
-  "background_color": "#40b983",
-  "display": "standalone",
-  "start_url": "./",
-  "scope": "."
-}

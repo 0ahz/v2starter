@@ -1,13 +1,13 @@
 import { defineStore } from 'pinia'
 
-type StateData = {
+type CountState = {
   count: number
   [k: string]: any
 }
 
 export const useCountStore = defineStore({
   id: 'count',
-  state: (): StateData => {
+  state: (): CountState => {
     return {
       count: 0,
     }

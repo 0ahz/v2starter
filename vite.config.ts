@@ -1,5 +1,6 @@
 import { resolve } from 'path'
-import { defineConfig, loadEnv } from 'vite'
+import { loadEnv } from 'vite'
+import { defineConfig } from 'vitest/config'
 import ViteVue from '@vitejs/plugin-vue'
 import ViteVueJsx from '@vitejs/plugin-vue-jsx'
 import ViteLegacy from '@vitejs/plugin-legacy'
@@ -81,29 +82,33 @@ export default ({ command, mode }) => {
       }),
       VitePWA({
         registerType: 'autoUpdate',
-        includeAssets: ['favicon.svg', 'safari-pinned-tab.svg'],
+        includeAssets: ['favicon.svg', 'apple-touch-icon.svg', 'mask-icon.svg'],
         manifest: {
           name: processEnv.VITE_TITLE,
           short_name: processEnv.VITE_TITLE,
+          description: processEnv.VITE_TITLE,
           theme_color: '#ffffff',
-          // icons: [
-          //   {
-          //     src: '/pwa-192x192.png',
-          //     sizes: '192x192',
-          //     type: 'image/png',
-          //   },
-          //   {
-          //     src: '/pwa-512x512.png',
-          //     sizes: '512x512',
-          //     type: 'image/png',
-          //   },
-          //   {
-          //     src: '/pwa-512x512.png',
-          //     sizes: '512x512',
-          //     type: 'image/png',
-          //     purpose: 'any maskable',
-          //   },
-          // ],
+          icons: [
+            {
+              src: '/pwa-192x192.png',
+              sizes: '192x192',
+              type: 'image/png',
+            },
+            {
+              src: '/pwa-512x512.png',
+              sizes: '512x512',
+              type: 'image/png',
+            },
+            {
+              src: '/pwa-512x512.png',
+              sizes: '512x512',
+              type: 'image/png',
+              purpose: 'any maskable',
+            },
+          ],
+        },
+        devOptions: {
+          // enabled: true,
         },
       }),
       ViteI18n({
@@ -134,6 +139,14 @@ export default ({ command, mode }) => {
         symbolId: 'svgicon-[dir]-[name]',
       }),
     ],
+    // https://github.com/vitest-dev/vitest
+    test: {
+      include: ['test/**/*.test.ts', 'test/**/*.spec.ts'],
+      environment: 'jsdom',
+      deps: {
+        inline: ['@vue', '@vueuse', 'vue-demi'],
+      },
+    },
     css: {
       preprocessorOptions: {
         less: {

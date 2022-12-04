@@ -1,6 +1,11 @@
 # The following redirect is intended for use with most SPAs 
 # that handle routing internally.
 [[redirects]]
-from = "/*"
-status = 200
-to = "/index.html"
+  from = "/*"
+  status = 200
+  to = "/index.html"
+
+[[headers]]
+  for = "/manifest.webmanifest"
+  [headers.values]
+    Content-Type = "application/manifest+json"

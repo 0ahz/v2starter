@@ -6,16 +6,14 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-html,
-body,
-#app {
-  height: 100%;
-}
-
 body {
-  @apply text-gray-700 dark: bg-gray-800 dark:text-gray-200;
+  @apply text-gray-700 dark:bg-gray-800 dark:text-gray-200;
   background-image: url(../assets/bg.svg);
   background-repeat: no-repeat, no-repeat;
   background-position: center center, center center;
   background-size: cover, cover;
+}
+
+#app {
+  @apply h-screen;
 }

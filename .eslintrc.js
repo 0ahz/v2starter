@@ -29,6 +29,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
     'plugin:vue/vue3-recommended',
+    './.eslintrc-auto-import.json',
   ],
   rules: {
     // override/add rules settings here

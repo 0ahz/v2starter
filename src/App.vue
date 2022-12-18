@@ -3,8 +3,6 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue'
-import { useHead } from '@vueuse/head'
 import { isDark, preferredDark } from '@/composables'
 
 export default defineComponent({

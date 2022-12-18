@@ -4,12 +4,11 @@ import { defineConfig } from 'vitest/config'
 import ViteVue from '@vitejs/plugin-vue'
 import ViteVueJsx from '@vitejs/plugin-vue-jsx'
 import ViteLegacy from '@vitejs/plugin-legacy'
-import ViteWindiCSS from 'vite-plugin-windicss'
 import ViteAutoImport from 'unplugin-auto-import/vite'
 import ViteComponents from 'unplugin-vue-components/vite'
 import ViteIcons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
-import ViteI18n from '@intlify/vite-plugin-vue-i18n'
+import ViteI18n from '@intlify/unplugin-vue-i18n/vite'
 import ViteRestart from 'vite-plugin-restart'
 import ViteCompression from 'vite-plugin-compression'
 import ViteBanner from 'vite-plugin-banner'
@@ -69,15 +68,23 @@ export default ({ command, mode }) => {
       ViteVue(),
       ViteLegacy({ targets: ['defaults', 'not IE 11'] }),
       ViteVueJsx(),
-      ViteWindiCSS(),
       ViteIcons({}),
       ViteAutoImport({
-        dts: resolvePath('auto-imports.d.ts'),
-        // imports: [],
-        // resolvers: [],
+        dts: resolvePath('src/auto-imports.d.ts'),
+        imports: [
+          'vue',
+          'vue-router',
+          'vue-i18n',
+          '@vueuse/head',
+          '@vueuse/core',
+          //
+        ],
+        dirs: [],
+        vueTemplate: true,
+        eslintrc: { enabled: true },
       }),
       ViteComponents({
-        dts: resolvePath('components.d.ts'),
+        dts: resolvePath('src/components.d.ts'),
         resolvers: [IconsResolver()],
       }),
       VitePWA({

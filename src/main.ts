@@ -1,8 +1,7 @@
-import 'virtual:windi.css'
-import 'virtual:windi-devtools'
-
-import '@/styles/main.css'
+import '@/styles/fonts.css'
+import '@/styles/tailwind.css'
 import '@/styles/nprogress.css'
+import '@/styles/global.css'
 
 import { createApp } from 'vue'
 

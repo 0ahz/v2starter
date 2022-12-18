@@ -34,40 +34,43 @@
       </a>
       <span
         class="cursor-pointer flex items-center space-x-2 count-btn"
-        @click="countStore.count++"
+        @click="counterStore.counter++"
       >
         <i-ph-heart-straight-duotone />
-        <span v-if="countStore.count" class="text-sm">{{
-          countStore.count
-        }}</span>
+        <span
+          v-if="counterStore.counter"
+          class="text-base select-none font__din-medium"
+        >
+          {{ counterStore.counter }}
+        </span>
       </span>
     </footer>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import { useI18n } from 'vue-i18n'
 import { isDark, toggleDark } from '@/composables'
-import { useCountStore } from '@/stores/index'
+import { useCounterStore } from '@/stores'
 
 export default defineComponent({
   name: 'AppIndex',
   setup() {
     const { availableLocales, locale } = useI18n()
+
     const toggleLocale = () => {
-      // change to some real logic
       const locales = availableLocales
       locale.value =
         locales[(locales.indexOf(locale.value) + 1) % locales.length]
     }
-    const countStore = useCountStore()
+
+    const counterStore = useCounterStore()
+
     return {
       title: import.meta.env.VITE_TITLE,
       isDark,
       toggleDark,
       toggleLocale,
-      countStore,
+      counterStore,
     }
   },
 })

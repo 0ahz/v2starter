@@ -39,7 +39,25 @@
         <i-ph-heart-straight-duotone />
         <span
           v-if="counterStore.counter"
-          class="text-base select-none font__din-medium"
+          class="text-base select-none font--din-light"
+        >
+          {{ counterStore.counter }}
+        </span>
+        <span
+          v-if="counterStore.counter"
+          class="text-base select-none font--din-regular"
+        >
+          {{ counterStore.counter }}
+        </span>
+        <span
+          v-if="counterStore.counter"
+          class="text-base select-none font--din-medium"
+        >
+          {{ counterStore.counter }}
+        </span>
+        <span
+          v-if="counterStore.counter"
+          class="text-base select-none font--din-bold"
         >
           {{ counterStore.counter }}
         </span>

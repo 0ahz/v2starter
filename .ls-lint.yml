@@ -1,0 +1,22 @@
+# lowercase - 文件或目录名必须全小写，数字除外，如 abeautifulname
+# camelcase camelCase文件和目录名必须为驼峰式，且只支持字母和数字，如 aBeautifulCase
+# pascalcase PascalCase文件和目录名必须满足帕斯卡命名法，且只支持字母和数字，如 ABeautifulName
+# snakecase snake_case文件和目录名必须为下划线联接，且只支持字母、数字和下划线，如 a_beautiful_name
+# kebabcase kebab-case文件和目录名必须为中划线联接，且只支持字母、数字和中划线，如 a-beautiful-name
+# pointcase point.case文件和目录名必须满足点文件规范，且只支持字母、数字和点，如 a.beautiful.name
+
+ls:
+  src/**:
+    .dir: kebab-case
+    .vue: kebab-case | pascalcase
+    .js: kebab-case
+    .ts: kebab-case
+    .json: kebab-case
+    .d.ts: kebab-case
+    .tsx: kebab-case
+
+ignore:
+  - .git
+  - .vscode
+  - node_modules
+  - dist

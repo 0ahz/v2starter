@@ -130,7 +130,7 @@ export default ({ command, mode }) => {
         // brotli
         // ext: '.br',
         // algorithm: 'brotliCompress',
-        filter: /\.(js|css|html|svg|png)$/i,
+        filter: /\.(js|css|html|svg|png|ttf)$/i,
         deleteOriginFile: false,
       }),
       ViteBanner(BANNER),

@@ -11,7 +11,6 @@ import IconsResolver from 'unplugin-icons/resolver'
 import ViteI18n from '@intlify/unplugin-vue-i18n/vite'
 import ViteRestart from 'vite-plugin-restart'
 import ViteCompression from 'vite-plugin-compression'
-import ViteBanner from 'vite-plugin-banner'
 
 import { VitePWA } from 'vite-plugin-pwa'
 import { createHtmlPlugin } from 'vite-plugin-html'
@@ -19,15 +18,6 @@ import { createStyleImportPlugin } from 'vite-plugin-style-import'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
 import * as pkg from './package.json'
-
-const BANNER = `/**
- * name: ${pkg.name}
- * version: v${pkg.version}
- * description: ${pkg.description}
- * author: ${pkg.author}
- * homepage: ${pkg.homepage}
- * license: ${pkg.license}
-**/`
 
 const resolvePath = (path: string): string => {
   return resolve(__dirname, path)
@@ -133,7 +123,6 @@ export default ({ command, mode }) => {
         filter: /\.(js|css|html|svg|png|ttf)$/i,
         deleteOriginFile: false,
       }),
-      ViteBanner(BANNER),
       createStyleImportPlugin({
         resolves: [],
       }),

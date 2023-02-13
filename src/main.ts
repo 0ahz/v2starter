@@ -7,9 +7,9 @@ import { createApp } from 'vue'
 
 import { name, version } from '../package.json'
 
-import App from './App.vue'
-import plugins from './plugins'
-import router from './router'
+import App from '@/App.vue'
+import router from '@/router'
+import plugins from '@/plugins'
 
 console.time('🕓 App Loaded')
 

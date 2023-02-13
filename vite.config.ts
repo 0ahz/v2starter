@@ -48,7 +48,6 @@ export default ({ command, mode }) => {
         },
       },
     },
-    base: processEnv.VITE_BASE,
     resolve: {
       alias: {
         '@/': `${resolvePath('src')}/`,
@@ -135,14 +134,6 @@ export default ({ command, mode }) => {
         symbolId: 'svgicon-[dir]-[name]',
       }),
     ],
-    // https://github.com/vitest-dev/vitest
-    test: {
-      include: ['test/**/*.test.ts', 'test/**/*.spec.ts'],
-      environment: 'jsdom',
-      deps: {
-        inline: ['@vue', '@vueuse', 'vue-demi'],
-      },
-    },
     css: {
       preprocessorOptions: {
         less: {
@@ -150,6 +141,14 @@ export default ({ command, mode }) => {
             'src/styles/variables.less',
           )}";`,
         },
+      },
+    },
+    // https://github.com/vitest-dev/vitest
+    test: {
+      include: ['test/**/*.test.ts', 'test/**/*.spec.ts'],
+      environment: 'jsdom',
+      deps: {
+        inline: ['@vue', '@vueuse', 'vue-demi'],
       },
     },
     optimizeDeps: {

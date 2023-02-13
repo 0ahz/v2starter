@@ -6,7 +6,7 @@
   "homepage": "https://github.com/0ahz/v2starter",
   "license": "MIT",
   "scripts": {
-    "dev": "vite --host --open",
+    "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint src",

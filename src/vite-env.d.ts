@@ -8,7 +8,6 @@ declare module '*.vue' {
 }
 
 interface ImportMetaEnv {
-  readonly VITE_BASE: string
   readonly VITE_TITLE: string
   readonly VITE_FAVICON_EMOJI: string
   // 更多环境变量...

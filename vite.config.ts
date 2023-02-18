@@ -26,7 +26,8 @@ const resolvePath = (path: string): string => {
 export default ({ command, mode }) => {
   const isBuild = command === 'build'
   const isProduction = mode === 'production'
-  const processEnv = loadEnv(mode, process.cwd())
+  const env = loadEnv(mode, process.cwd(), '')
+  const viteEnv = loadEnv(mode, process.cwd())
   const injectData = {
     mode,
     isBuild,
@@ -34,7 +35,7 @@ export default ({ command, mode }) => {
     pkgName: pkg.name,
     pkgVersion: pkg.version,
     buildTime: new Date().toISOString(),
-    ...processEnv,
+    ...viteEnv,
   }
   console.log(injectData)
   return defineConfig({
@@ -42,7 +43,7 @@ export default ({ command, mode }) => {
       port: 3101,
       proxy: {
         '/api': {
-          target: 'http://localhost:7700',
+          target: env.DEV_HOST,
           changeOrigin: true,
           rewrite: path => path.replace(/^\/api/, ''),
         },
@@ -73,16 +74,16 @@ export default ({ command, mode }) => {
         eslintrc: { enabled: true },
       }),
       ViteComponents({
-        dts: resolvePath('src/components.d.ts'),
+        dts: resolvePath('src/auto-components.d.ts'),
         resolvers: [IconsResolver()],
       }),
       VitePWA({
         registerType: 'autoUpdate',
         includeAssets: ['favicon.svg', 'apple-touch-icon.svg', 'mask-icon.svg'],
         manifest: {
-          name: processEnv.VITE_TITLE,
-          short_name: processEnv.VITE_TITLE,
-          description: processEnv.VITE_TITLE,
+          name: viteEnv.VITE_TITLE,
+          short_name: viteEnv.VITE_TITLE,
+          description: viteEnv.VITE_TITLE,
           theme_color: '#ffffff',
           icons: [
             {

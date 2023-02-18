@@ -14,7 +14,6 @@ import ViteCompression from 'vite-plugin-compression'
 
 import { VitePWA } from 'vite-plugin-pwa'
 import { createHtmlPlugin } from 'vite-plugin-html'
-import { createStyleImportPlugin } from 'vite-plugin-style-import'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
 import * as pkg from './package.json'
@@ -25,18 +24,17 @@ const resolvePath = (path: string): string => {
 
 export default ({ command, mode }) => {
   const isBuild = command === 'build'
-  const isProduction = mode === 'production'
   const env = loadEnv(mode, process.cwd(), '')
   const viteEnv = loadEnv(mode, process.cwd())
   const injectData = {
     mode,
     isBuild,
-    isProduction,
     pkgName: pkg.name,
     pkgVersion: pkg.version,
     buildTime: new Date().toISOString(),
     ...viteEnv,
   }
+  console.log(env)
   console.log(injectData)
   return defineConfig({
     server: {
@@ -122,9 +120,6 @@ export default ({ command, mode }) => {
         // algorithm: 'brotliCompress',
         filter: /\.(js|css|html|svg|png|ttf)$/i,
         deleteOriginFile: false,
-      }),
-      createStyleImportPlugin({
-        resolves: [],
       }),
       createHtmlPlugin({
         minify: isBuild,

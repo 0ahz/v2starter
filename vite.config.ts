@@ -1,4 +1,5 @@
 import { resolve } from 'path'
+import { format } from 'date-fns'
 import { loadEnv } from 'vite'
 import { defineConfig } from 'vitest/config'
 import ViteVue from '@vitejs/plugin-vue'
@@ -31,10 +32,9 @@ export default ({ command, mode }) => {
     isBuild,
     pkgName: pkg.name,
     pkgVersion: pkg.version,
-    buildTime: new Date().toISOString(),
+    buildTime: format(new Date(), 'yyyyMMddHHmmssSSS'),
     ...viteEnv,
   }
-  console.log(env)
   console.log(injectData)
   return defineConfig({
     server: {
@@ -43,7 +43,7 @@ export default ({ command, mode }) => {
         '/api': {
           target: env.DEV_HOST,
           changeOrigin: true,
-          rewrite: path => path.replace(/^\/api/, ''),
+          // rewrite: path => path.replace(/^\/api/, ''),
         },
       },
     },

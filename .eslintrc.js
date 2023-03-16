@@ -34,6 +34,7 @@ module.exports = {
   rules: {
     // override/add rules settings here
     '@typescript-eslint/no-explicit-any': 'off',
+    'prettier/prettier': ['error', { endOfLine: 'auto' }],
     'vue/max-attributes-per-line': 'off',
     'vue/singleline-html-element-content-newline': 'off',
     'vue/multi-word-component-names': 'off',

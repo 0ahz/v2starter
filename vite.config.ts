@@ -28,7 +28,6 @@ export default ({ command, mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
   const viteEnv = loadEnv(mode, process.cwd())
   const injectData = {
-    mode,
     isBuild,
     pkgName: pkg.name,
     pkgVersion: pkg.version,
@@ -130,15 +129,6 @@ export default ({ command, mode }) => {
         symbolId: 'svgicon-[dir]-[name]',
       }),
     ],
-    css: {
-      preprocessorOptions: {
-        less: {
-          additionalData: `@import "${resolvePath(
-            'src/styles/variables.less',
-          )}";`,
-        },
-      },
-    },
     // https://github.com/vitest-dev/vitest
     test: {
       include: ['test/**/*.test.ts', 'test/**/*.spec.ts'],

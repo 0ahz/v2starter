@@ -1,7 +1,7 @@
 /* eslint-disable no-var */
 
-declare var wx: any
+declare var globalVar: any
 
 interface Window {
-  wx: any
+  globalVar: any
 }

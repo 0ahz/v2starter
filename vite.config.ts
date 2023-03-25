@@ -10,8 +10,8 @@ import ViteComponents from 'unplugin-vue-components/vite'
 import ViteIcons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import ViteI18n from '@intlify/unplugin-vue-i18n/vite'
-import ViteRestart from 'vite-plugin-restart'
 import ViteCompression from 'vite-plugin-compression'
+import ViteFonts from 'unplugin-fonts/vite'
 
 import { VitePWA } from 'vite-plugin-pwa'
 import { createHtmlPlugin } from 'vite-plugin-html'
@@ -57,7 +57,7 @@ export default ({ command, mode }) => {
       ViteVueJsx(),
       ViteIcons({}),
       ViteAutoImport({
-        dts: resolvePath('src/auto-imports.d.ts'),
+        dts: resolvePath('src/types/auto-imports.d.ts'),
         imports: [
           'vue',
           'vue-router',
@@ -71,7 +71,7 @@ export default ({ command, mode }) => {
         eslintrc: { enabled: true },
       }),
       ViteComponents({
-        dts: resolvePath('src/auto-components.d.ts'),
+        dts: resolvePath('src/types/auto-components.d.ts'),
         resolvers: [IconsResolver()],
       }),
       VitePWA({
@@ -110,7 +110,6 @@ export default ({ command, mode }) => {
         compositionOnly: true,
         include: [`${resolvePath('src/plugins/i18n/locales')}/**`],
       }),
-      ViteRestart({ restart: [] }),
       ViteCompression({
         // gzip
         ext: '.gz',
@@ -120,6 +119,7 @@ export default ({ command, mode }) => {
         filter: /\.(js|css|html|svg|png|ttf)$/i,
         deleteOriginFile: false,
       }),
+      ViteFonts(),
       createHtmlPlugin({
         minify: isBuild,
         inject: { data: injectData },

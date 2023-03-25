@@ -17,7 +17,8 @@
       "vite/client",
       "@intlify/unplugin-vue-i18n/messages",
       "vite-plugin-svg-icons/client",
-      "vite-plugin-pwa/client"
+      "vite-plugin-pwa/client",
+      "unplugin-fonts/client"
       //
     ],
     "paths": {

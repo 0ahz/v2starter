@@ -1,5 +1,10 @@
 <template>
-  <svg class="svg-icon" aria-hidden="true">
+  <svg
+    class="svg-icon"
+    aria-hidden="true"
+    :style="{ color }"
+    @click="$emit('click', $event)"
+  >
     <use :xlink:href="`#svgicon-${name}`" :fill="color" />
   </svg>
 </template>
@@ -19,15 +24,16 @@ export default defineComponent({
       default: 'currentColor',
     },
   },
+  emits: ['click'],
 })
 </script>
 
 <style scoped>
 .svg-icon {
-  width: 1.2em;
-  height: 1.2em;
   position: relative;
+  width: 1em;
+  height: 1em;
   fill: currentColor;
-  vertical-align: -2px;
+  vertical-align: -0.15em;
 }
 </style>

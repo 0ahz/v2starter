@@ -9,7 +9,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    HelloWorld: typeof import('./components/HelloWorld.vue')['default']
+    HelloWorld: typeof import('./../components/HelloWorld.vue')['default']
     IPhArrowLeftDuotone: typeof import('~icons/ph/arrow-left-duotone')['default']
     IPhGithubLogoDuotone: typeof import('~icons/ph/github-logo-duotone')['default']
     IPhHeartStraightDuotone: typeof import('~icons/ph/heart-straight-duotone')['default']

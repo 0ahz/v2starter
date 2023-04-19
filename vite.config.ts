@@ -75,7 +75,6 @@ export default ({ command, mode }) => {
         resolvers: [IconsResolver()],
       }),
       VitePWA({
-        registerType: 'autoUpdate',
         includeAssets: ['favicon.svg', 'apple-touch-icon.svg', 'mask-icon.svg'],
         manifest: {
           name: viteEnv.VITE_TITLE,
@@ -100,6 +99,10 @@ export default ({ command, mode }) => {
               purpose: 'any maskable',
             },
           ],
+        },
+        registerType: 'autoUpdate',
+        workbox: {
+          cleanupOutdatedCaches: true,
         },
         devOptions: {
           // enabled: true,

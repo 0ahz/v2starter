@@ -9,5 +9,6 @@
   "trailingComma": "all",
   "semi": false,
   "arrowParens": "avoid",
-  "singleAttributePerLine": false
+  "singleAttributePerLine": false,
+  "plugins": ["prettier-plugin-tailwindcss"]
 }

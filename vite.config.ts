@@ -101,9 +101,7 @@ export default ({ command, mode }) => {
           ],
         },
         registerType: 'autoUpdate',
-        workbox: {
-          cleanupOutdatedCaches: true,
-        },
+        selfDestroying: true,
         devOptions: {
           // enabled: true,
         },

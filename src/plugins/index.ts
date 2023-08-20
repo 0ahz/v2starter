@@ -4,6 +4,7 @@ type PluginInstall = (app: App, ...options: any[]) => any
 
 export default {
   install(app: App): void {
+    // https://cn.vitejs.dev/guide/features.html#glob-import
     const plugins = import.meta.glob<{
       install: PluginInstall
       disabled?: boolean

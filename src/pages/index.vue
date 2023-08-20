@@ -11,6 +11,8 @@
       <nav class="space-x-4 text-base">
         <router-link to="/">{{ $t('home') }}</router-link>
         <router-link to="/about">{{ $t('about') }}</router-link>
+        <router-link to="/demo">demo</router-link>
+        <router-link to="/demo/about">/demo/about</router-link>
         <router-link to="/login">{{ $t('login') }}</router-link>
       </nav>
     </header>

@@ -10,7 +10,6 @@ import ViteComponents from 'unplugin-vue-components/vite'
 import ViteIcons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import ViteI18n from '@intlify/unplugin-vue-i18n/vite'
-import ViteCompression from 'vite-plugin-compression'
 import ViteFonts from 'unplugin-fonts/vite'
 
 import { VitePWA } from 'vite-plugin-pwa'
@@ -31,7 +30,7 @@ export default ({ command, mode }) => {
     isBuild,
     pkgName: pkg.name,
     pkgVersion: pkg.version,
-    buildTime: format(new Date(), 'yyyyMMddHHmmssSSS'),
+    buildTime: format(new Date(), 'yyyy-MM-dd HH:mm:ss-SSS'),
     ...viteEnv,
   }
   console.log(injectData)
@@ -55,7 +54,10 @@ export default ({ command, mode }) => {
       ViteVue(),
       ViteLegacy({ targets: ['defaults', 'not IE 11'] }),
       ViteVueJsx(),
-      ViteIcons({}),
+      ViteIcons({
+        // experimental
+        autoInstall: true,
+      }),
       ViteAutoImport({
         dts: resolvePath('src/types/auto-imports.d.ts'),
         imports: [
@@ -110,15 +112,6 @@ export default ({ command, mode }) => {
         runtimeOnly: true,
         compositionOnly: true,
         include: [`${resolvePath('src/plugins/i18n/locales')}/**`],
-      }),
-      ViteCompression({
-        // gzip
-        ext: '.gz',
-        // brotli
-        // ext: '.br',
-        // algorithm: 'brotliCompress',
-        filter: /\.(js|css|html|svg|png|ttf)$/i,
-        deleteOriginFile: false,
       }),
       ViteFonts(),
       createHtmlPlugin({
